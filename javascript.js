@@ -7,8 +7,13 @@
     {nom : "Fabien",
     notes : [7,18,9]}]
   
+ function refresh()
+{
 
- for ( var i in mesNotes){
+  document.getElementById("liste").innerHTML=" "
+
+
+  for ( var i in mesNotes){
 
     var monElem = document.createElement('tr')
     var monTd= document.createElement('td')
@@ -27,7 +32,6 @@
         monElem.appendChild(monElem2)
         
         } 
-
        
     var boutonModif=document.createElement('BUTTON')
     boutonModif.innerHTML= "EDIT";
@@ -39,22 +43,17 @@
     monElem.appendChild(boutonSup)
     boutonSup.addEventListener("click", suppLigne("ligne"+i));
     
-
-   
-
-        
     document.getElementById('liste').appendChild(monElem)
-
-
-    
-    
+  
 
  } 
+  //Ma fonction s'occuppe de cider la table et de la reconstruire avec le DOM
 
+  
+ 
 
- function suppLigne(id)
+function suppLigne(id)
  {
-
 
   return function(e)
   {
@@ -64,20 +63,12 @@
 }
 
 
-
 function edditline(id)
 {
   
-
-
-  
-  
-
   return function(e)
   {
 
-
-  
   document.getElementById(id).remove()
 
   monElem.appendChild(boutonValider)
@@ -89,44 +80,13 @@ function edditline(id)
 }
 
 
+setTimeout(refresh,1000)
+
+}
+
+
+//On appelle la fonction une fois
+refresh()
 
 
 
- 
-/*
- var monObj = {
-    nom : "Demettre",
-    prenom : "Julien",
-    age: 37,
-    garçon: true,
-  }
-
-
-  
-  for(let i in monObj)
-  {
-    var monElem = document.createElement('p')
-
-    monElem.innerHTML=("Mon "+ i+" est "+monObj[i])
-
-    document.getElementById('bonjour').appendChild(monElem)
-  }
- 
-*/
-
- /*
- //Je créé le boutton d'édition
- var monbutEdit = document.createElement('input')
- monbutEdit.type = "button"
- monbutEdit.value = "Edit"
- //J'ajoute le bouton dans la cellule
- monTdEdit.appendChild(monbutEdit)
- //Je créé le boutton de suppréssion
- var monbutSup = document.createElement('input')
- monbutSup.type = "button"
- monbutSup.value = "Sup"
- //J'ajoute le boutton dans la cellule
- monTdEdit.appendChild(monbutSup)
- //J'ajoute les boutons à la ligne
- monElem.appendChild(monTdEdit)
-*/
